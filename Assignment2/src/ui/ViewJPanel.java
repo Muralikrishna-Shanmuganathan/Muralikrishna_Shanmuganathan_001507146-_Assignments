@@ -42,6 +42,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblView = new javax.swing.JTable();
@@ -65,9 +66,16 @@ public class ViewJPanel extends javax.swing.JPanel {
         jRadioButtonYes = new javax.swing.JRadioButton();
         jRadioButtonNo = new javax.swing.JRadioButton();
         lblAvailability1 = new javax.swing.JLabel();
+        lblDateUpdated = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setText("VIEW VEHICLE INFORMATION");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
+        tblView.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -89,185 +97,95 @@ public class ViewJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblView);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 57, 597, 408));
+
+        btnView.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         btnView.setText("VIEW");
         btnView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewActionPerformed(evt);
             }
         });
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 526, -1, -1));
 
+        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         btnDelete.setText("DELETE");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 526, -1, -1));
+        add(txtManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 605, 135, -1));
+        add(txtSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 749, 98, -1));
 
+        lblManufacturerYear.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblManufacturerYear.setText("VEHICLE MANUFACTURER YEAR:");
+        add(lblManufacturerYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 707, -1, -1));
 
         txtSerialNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSerialNumberActionPerformed(evt);
             }
         });
+        add(txtSerialNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(699, 703, 99, -1));
 
+        lblNumberOfSeats.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblNumberOfSeats.setText("NUMBER OF SEATS:");
+        add(lblNumberOfSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 758, -1, -1));
+        add(txtModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 649, 134, -1));
 
+        lblManufacturerName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblManufacturerName.setText("VEHICLE MANUFACTURER NAME:");
+        add(lblManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 609, -1, -1));
+        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(699, 652, 100, -1));
 
+        lblModelNumber.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblModelNumber.setText("VEHICLE MODEL NUMBER:");
+        add(lblModelNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 653, -1, -1));
+        add(txtExpiryCertificate, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 754, 134, -1));
 
+        lblSerialNumber.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblSerialNumber.setText("VEHICLE SERIAL NUMBER:");
+        add(lblSerialNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 707, -1, -1));
+        add(txtManufacturerYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 703, 134, -1));
 
+        lblCertificateExpiry.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblCertificateExpiry.setText("MAINTENANCE CERTIFICATE EXPIRY DATE:");
+        add(lblCertificateExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 758, -1, -1));
 
+        lblCity.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblCity.setText("CITY:");
+        add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 649, -1, 30));
 
+        btnupdate.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         btnupdate.setText("UPDATE");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnupdateActionPerformed(evt);
             }
         });
+        add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 525, -1, -1));
 
+        buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
         jRadioButtonYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonYesActionPerformed(evt);
             }
         });
+        add(jRadioButtonYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(684, 591, -1, 40));
 
+        buttonGroup1.add(jRadioButtonNo);
         jRadioButtonNo.setText("No");
+        add(jRadioButtonNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(754, 591, -1, 40));
 
+        lblAvailability1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblAvailability1.setText("VEHICLE AVAILABILITY:");
+        add(lblAvailability1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 601, -1, 20));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(lblTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(btnView)
-                        .addGap(15, 15, 15)
-                        .addComponent(btnDelete)
-                        .addGap(11, 11, 11)
-                        .addComponent(btnupdate))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(lblCertificateExpiry)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtExpiryCertificate, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(lblNumberOfSeats)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblAvailability1)
-                            .addGap(6, 6, 6)
-                            .addComponent(jRadioButtonYes)
-                            .addGap(16, 16, 16)
-                            .addComponent(jRadioButtonNo))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(76, 76, 76)
-                                    .addComponent(lblManufacturerYear)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtManufacturerYear, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(42, 42, 42)
-                                    .addComponent(lblSerialNumber))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(115, 115, 115)
-                                    .addComponent(lblModelNumber)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(162, 162, 162)
-                                    .addComponent(lblCity))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(76, 76, 76)
-                                    .addComponent(lblManufacturerName)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(txtManufacturerName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(lblTitle)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnupdate)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnView)
-                                    .addComponent(btnDelete))))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtManufacturerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(lblManufacturerName))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(lblAvailability1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jRadioButtonYes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jRadioButtonNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(lblModelNumber))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(txtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(lblManufacturerYear))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(txtManufacturerYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblSerialNumber)
-                        .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(lblCertificateExpiry))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(txtExpiryCertificate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNumberOfSeats)
-                            .addComponent(txtSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(74, 74, 74))
-        );
+        lblDateUpdated.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        add(lblDateUpdated, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 560, 300, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSerialNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerialNumberActionPerformed
@@ -375,7 +293,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         if (availCheck == 0){
             selectedCar.setAvailability(avail);
-            
         }
         
         
@@ -394,9 +311,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
         LocalDateTime now = LocalDateTime.now();  
-        System.out.println(dtf.format(now)); 
         String date = dtf.format(now);
         obj.setDate(date);
+        lblDateUpdated.setText("Fleet last updated on: "+date);
         
         
         
@@ -407,12 +324,14 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnView;
     private javax.swing.JButton btnupdate;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton jRadioButtonNo;
     private javax.swing.JRadioButton jRadioButtonYes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAvailability1;
     private javax.swing.JLabel lblCertificateExpiry;
     private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblDateUpdated;
     private javax.swing.JLabel lblManufacturerName;
     private javax.swing.JLabel lblManufacturerYear;
     private javax.swing.JLabel lblModelNumber;

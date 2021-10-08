@@ -31,7 +31,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         
         jComboBox1.addItem("First available passenger car");
         jComboBox1.addItem("How many are available and how many are not");
-        jComboBox1.addItem("When was the last time the fleet catalog was updated");
+//        jComboBox1.addItem("When was the last time the fleet catalog was updated");
         
         
     }
@@ -69,18 +69,21 @@ public class SearchJPanel extends javax.swing.JPanel {
         btnListAll = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setText("VEHICLE DETAILS");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
 
+        btnCarAvailability.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         btnCarAvailability.setText("FIND ALL AVAILABLE CARS");
         btnCarAvailability.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCarAvailabilityActionPerformed(evt);
             }
         });
-        add(btnCarAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
+        add(btnCarAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
         jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,7 +95,7 @@ public class SearchJPanel extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 380, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 380, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,82 +110,90 @@ public class SearchJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 1010, 150));
-        add(txtAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 310, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1010, 150));
+        add(txtAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 310, -1));
 
+        btnManufacturerName.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnManufacturerName.setText("CAR MANUFACTURED BY:");
         btnManufacturerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManufacturerNameActionPerformed(evt);
             }
         });
-        add(btnManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
-        add(txtManuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 110, -1));
+        add(btnManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, -1, -1));
+        add(txtManuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 110, -1));
 
+        btnManufacturedYear.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnManufacturedYear.setText("CAR MANUFACTURED IN:");
         btnManufacturedYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManufacturedYearActionPerformed(evt);
             }
         });
-        add(btnManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, -1));
-        add(txtManuYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 460, 110, -1));
+        add(btnManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
+        add(txtManuYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 540, 110, -1));
 
+        btnSeats.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnSeats.setText("NUMBER OF SEATS:");
         btnSeats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeatsActionPerformed(evt);
             }
         });
-        add(btnSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 190, -1));
-        add(txtMaxSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 50, -1));
-        add(txtMinSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, 50, -1));
+        add(btnSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, 240, -1));
+        add(txtMaxSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 580, 50, -1));
+        add(txtMinSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, 50, -1));
 
+        btnSerial.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnSerial.setText("CAR SERIAL NUMBER :");
         btnSerial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSerialActionPerformed(evt);
             }
         });
-        add(btnSerial, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 200, -1));
-        add(txtSerial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, 110, -1));
+        add(btnSerial, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, 240, -1));
+        add(txtSerial, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 110, -1));
 
+        btnModel.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnModel.setText("CAR MODEL NUMBER :");
         btnModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModelActionPerformed(evt);
             }
         });
-        add(btnModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 200, -1));
-        add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 580, 110, -1));
+        add(btnModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 660, 240, -1));
+        add(txtModel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 660, 110, -1));
 
+        btnCity.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnCity.setText("CITY");
         btnCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCityActionPerformed(evt);
             }
         });
-        add(btnCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 200, -1));
-        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 620, 110, -1));
+        add(btnCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 700, 240, -1));
+        add(txtCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 700, 110, -1));
 
+        btnExpiry.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnExpiry.setText("CERTIFICATE EXPIRY YEAR");
         btnExpiry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExpiryActionPerformed(evt);
             }
         });
-        add(btnExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, 200, -1));
-        add(txtExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 660, 110, -1));
+        add(btnExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 740, 240, -1));
+        add(txtExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 740, 110, -1));
 
+        btnListAll.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnListAll.setText("LIST ALL MANUFACTURERS");
         btnListAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListAllActionPerformed(evt);
             }
         });
-        add(btnListAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 700, 210, -1));
+        add(btnListAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 780, 240, -1));
 
-        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 700, 130, -1));
+        add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 780, 130, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -201,7 +212,7 @@ public class SearchJPanel extends javax.swing.JPanel {
 
                             Object[] row = new Object[8];
                             row[0] = obj;
-                            row[1] = obj.getManufacturedYear();
+                            row[1] = String.valueOf(obj.getManufacturedYear());
                             row[2] = String.valueOf(obj.getSeats());
                             row[3] = obj.getCarNumber();
                             row[4] = obj.getModelNumber();
@@ -228,10 +239,11 @@ public class SearchJPanel extends javax.swing.JPanel {
                      txtAnswer1.setText(String.valueOf(countYes)+" cars are available and "+String.valueOf(countNo)+" cars are not available");
                      break;
                      
-                case 2:
-                    txtAnswer1.setText("");
-                    Car obj = new Car();
-                    txtAnswer1.setText(String.valueOf(obj.getDate()));
+//                case 2:
+//                    txtAnswer1.setText("");
+//                    Car obj = new Car();
+//                    txtAnswer1.setText("Catalog last updated on: "+obj.getDate());
+//                    System.out.println(obj.getDate());
         
         }
                                         
@@ -274,7 +286,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         int count=0;
         String manuName = txtManuName.getText();
         for( Car obj : carList.getCarList()){
-            if( obj.getManufacturer().equals(manuName)){
+            if( obj.getManufacturer().equalsIgnoreCase(manuName)){
                 Object[] row = new Object[8];
                 row[0] = obj;
                 row[1] = obj.getManufacturedYear();
@@ -372,7 +384,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         String serial = txtSerial.getText();
         
         for( Car obj : carList.getCarList()){
-            if( obj.getCarNumber().equals(serial)){
+            if( obj.getCarNumber().equalsIgnoreCase(serial)){
                 Object[] row = new Object[8];
                 row[0] = obj;
                 row[1] = obj.getManufacturedYear();
@@ -406,7 +418,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         String modelNumber = txtModel.getText();
         
         for( Car obj : carList.getCarList()){
-            if( obj.getModelNumber().equals(modelNumber)){
+            if( obj.getModelNumber().equalsIgnoreCase(modelNumber)){
                 Object[] row = new Object[8];
                 row[0] = obj;
                 row[1] = obj.getManufacturedYear();
@@ -439,7 +451,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         String city = txtCity.getText();
         
         for( Car obj : carList.getCarList()){
-            if( obj.getCity().equals(city)){
+            if( obj.getCity().equalsIgnoreCase(city)){
                 Object[] row = new Object[8];
                 row[0] = obj;
                 row[1] = obj.getManufacturedYear();
