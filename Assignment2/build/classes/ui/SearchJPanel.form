@@ -160,7 +160,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CAR MANUFACTURED BY:"/>
+        <Property name="text" type="java.lang.String" value="CAR MANUFACTURED BY"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManufacturerNameActionPerformed"/>
@@ -183,14 +183,14 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CAR MANUFACTURED IN:"/>
+        <Property name="text" type="java.lang.String" value="CAR MANUFACTURED IN"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnManufacturedYearActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="400" y="540" width="-1" height="-1"/>
+          <AbsoluteConstraints x="400" y="539" width="240" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -206,7 +206,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="NUMBER OF SEATS:"/>
+        <Property name="text" type="java.lang.String" value="NUMBER OF SEATS"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeatsActionPerformed"/>
@@ -236,7 +236,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CAR SERIAL NUMBER :"/>
+        <Property name="text" type="java.lang.String" value="CAR SERIAL NUMBER "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSerialActionPerformed"/>
@@ -259,7 +259,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CAR MODEL NUMBER :"/>
+        <Property name="text" type="java.lang.String" value="CAR MODEL NUMBER "/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModelActionPerformed"/>

@@ -114,7 +114,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         add(txtAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 310, -1));
 
         btnManufacturerName.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
-        btnManufacturerName.setText("CAR MANUFACTURED BY:");
+        btnManufacturerName.setText("CAR MANUFACTURED BY");
         btnManufacturerName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManufacturerNameActionPerformed(evt);
@@ -124,17 +124,17 @@ public class SearchJPanel extends javax.swing.JPanel {
         add(txtManuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 110, -1));
 
         btnManufacturedYear.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
-        btnManufacturedYear.setText("CAR MANUFACTURED IN:");
+        btnManufacturedYear.setText("CAR MANUFACTURED IN");
         btnManufacturedYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManufacturedYearActionPerformed(evt);
             }
         });
-        add(btnManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 540, -1, -1));
+        add(btnManufacturedYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 539, 240, 30));
         add(txtManuYear, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 540, 110, -1));
 
         btnSeats.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
-        btnSeats.setText("NUMBER OF SEATS:");
+        btnSeats.setText("NUMBER OF SEATS");
         btnSeats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeatsActionPerformed(evt);
@@ -145,7 +145,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         add(txtMinSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, 50, -1));
 
         btnSerial.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
-        btnSerial.setText("CAR SERIAL NUMBER :");
+        btnSerial.setText("CAR SERIAL NUMBER ");
         btnSerial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSerialActionPerformed(evt);
@@ -155,7 +155,7 @@ public class SearchJPanel extends javax.swing.JPanel {
         add(txtSerial, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 620, 110, -1));
 
         btnModel.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
-        btnModel.setText("CAR MODEL NUMBER :");
+        btnModel.setText("CAR MODEL NUMBER ");
         btnModel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModelActionPerformed(evt);
