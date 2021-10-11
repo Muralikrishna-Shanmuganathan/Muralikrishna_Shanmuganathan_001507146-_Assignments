@@ -28,8 +28,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         initComponents();
         
         this.carList= carList;
-        
-//        prePopulate();
         populateTable();
     }
 
@@ -106,7 +104,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 btnViewActionPerformed(evt);
             }
         });
-        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 526, -1, -1));
+        add(btnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 540, -1, -1));
 
         btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
         btnDelete.setText("DELETE");
@@ -115,7 +113,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 526, -1, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 540, -1, -1));
         add(txtManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 605, 135, -1));
         add(txtSeats, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 749, 98, -1));
 
@@ -165,7 +163,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 btnupdateActionPerformed(evt);
             }
         });
-        add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 525, -1, -1));
+        add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, -1, -1));
 
         buttonGroup1.add(jRadioButtonYes);
         jRadioButtonYes.setText("Yes");
@@ -185,7 +183,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         add(lblAvailability1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 601, -1, 20));
 
         lblDateUpdated.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
-        add(lblDateUpdated, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 560, 300, 20));
+        add(lblDateUpdated, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 300, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSerialNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerialNumberActionPerformed
@@ -247,6 +245,16 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtModelNumber.setText("");
         txtCity.setText("");
         txtExpiryCertificate.setText("");
+        
+        Car obj = new Car();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+        LocalDateTime now = LocalDateTime.now();  
+        String date = dtf.format(now);
+        obj.setDate(date);
+        lblDateUpdated.setText("Fleet last updated on: "+date);
+        
+        
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void jRadioButtonYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonYesActionPerformed
@@ -272,8 +280,10 @@ public class ViewJPanel extends javax.swing.JPanel {
         selectedCar.setManufacturedYear(Integer.parseInt(txtManufacturerYear.getText()));
         selectedCar.setModelNumber(txtModelNumber.getText());
         selectedCar.setSeats(Integer.parseInt(txtSeats.getText()));
-        selectedCar.setCarNumber(txtSerialNumber.getText());    
-        
+        if(!(selectedCar.getCarNumber().equalsIgnoreCase(txtSerialNumber.getText()))){
+            JOptionPane.showMessageDialog(null,"Cannot update Serial Number!");
+            return;
+        }
         String avail="";
         int availCheck = 0;
         
@@ -365,4 +375,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
+
+    
 }

@@ -28,11 +28,7 @@ public class SearchJPanel extends javax.swing.JPanel {
     public SearchJPanel(CarList carList) {
         initComponents();
         this.carList = carList;
-        
-        jComboBox1.addItem("First available passenger car");
-        jComboBox1.addItem("How many are available and how many are not");
-//        jComboBox1.addItem("When was the last time the fleet catalog was updated");
-        
+        Availablity();
         
     }
 
@@ -47,10 +43,8 @@ public class SearchJPanel extends javax.swing.JPanel {
 
         lblTitle = new javax.swing.JLabel();
         btnCarAvailability = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        txtAnswer1 = new javax.swing.JTextField();
         btnManufacturerName = new javax.swing.JButton();
         txtManuName = new javax.swing.JTextField();
         btnManufacturedYear = new javax.swing.JButton();
@@ -68,6 +62,12 @@ public class SearchJPanel extends javax.swing.JPanel {
         txtExpiry = new javax.swing.JTextField();
         btnListAll = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
+        btnFirstAvail = new javax.swing.JButton();
+        txtFirstAvail = new javax.swing.JTextField();
+        lblAvailCars = new javax.swing.JLabel();
+        lblNotAvailCars = new javax.swing.JLabel();
+        txtAvailYes = new javax.swing.JTextField();
+        txtAvailNo = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,18 +85,6 @@ public class SearchJPanel extends javax.swing.JPanel {
         });
         add(btnCarAvailability, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, -1, -1));
 
-        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jComboBox1MouseClicked(evt);
-            }
-        });
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 380, -1));
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -111,7 +99,6 @@ public class SearchJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 1010, 150));
-        add(txtAnswer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 410, 310, -1));
 
         btnManufacturerName.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
         btnManufacturerName.setText("CAR MANUFACTURED BY");
@@ -120,7 +107,7 @@ public class SearchJPanel extends javax.swing.JPanel {
                 btnManufacturerNameActionPerformed(evt);
             }
         });
-        add(btnManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 500, -1, -1));
+        add(btnManufacturerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 499, 240, 30));
         add(txtManuName, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, 110, -1));
 
         btnManufacturedYear.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
@@ -194,65 +181,29 @@ public class SearchJPanel extends javax.swing.JPanel {
         add(btnListAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 780, 240, -1));
 
         add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 780, 130, -1));
+
+        btnFirstAvail.setFont(new java.awt.Font("Lucida Grande", 1, 15)); // NOI18N
+        btnFirstAvail.setText("FIRST AVAILABLE CAR IN");
+        btnFirstAvail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstAvailActionPerformed(evt);
+            }
+        });
+        add(btnFirstAvail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 459, 240, 30));
+        add(txtFirstAvail, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 460, 110, -1));
+
+        lblAvailCars.setText("Available");
+        add(lblAvailCars, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, 130, 30));
+
+        lblNotAvailCars.setText("Not Available");
+        add(lblNotAvailCars, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 160, 30));
+
+        txtAvailYes.setEditable(false);
+        add(txtAvailYes, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 310, 190, -1));
+
+        txtAvailNo.setEditable(false);
+        add(txtAvailNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 340, 190, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here: 
-        
-        
-        int index = jComboBox1.getSelectedIndex();
-        switch(index){
-                case 0:
-                    txtAnswer1.setText("");
-                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-                    model.setRowCount(0);
-
-                    for( Car obj : carList.getCarList()){
-                        if( obj.getAvailability().equals("yes")){
-
-                            Object[] row = new Object[8];
-                            row[0] = obj;
-                            row[1] = String.valueOf(obj.getManufacturedYear());
-                            row[2] = String.valueOf(obj.getSeats());
-                            row[3] = obj.getCarNumber();
-                            row[4] = obj.getModelNumber();
-                            row[5] = obj.getCity();
-                            row[6] = obj.getExpiryCertificate();
-                            row[7] = obj.getAvailability();
-
-                            model.addRow(row);
-                        } 
-                        break;
-                    }
-                    
-                    break;
-                case 1: 
-                    txtAnswer1.setText("");
-                    int countYes = 0;
-                    int countNo = 0;
-                    for( Car obj : carList.getCarList()){
-                        if( obj.getAvailability().equals("yes"))
-                            countYes++;
-                        else if( obj.getAvailability().equals("no"))
-                            countNo++;
-                    }
-                     txtAnswer1.setText(String.valueOf(countYes)+" cars are available and "+String.valueOf(countNo)+" cars are not available");
-                     break;
-                     
-//                case 2:
-//                    txtAnswer1.setText("");
-//                    Car obj = new Car();
-//                    txtAnswer1.setText("Catalog last updated on: "+obj.getDate());
-//                    System.out.println(obj.getDate());
-        
-        }
-                                        
-
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
-
-    }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void btnCarAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarAvailabilityActionPerformed
         // TODO add your handling code here:
@@ -525,24 +476,62 @@ public class SearchJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnListAllActionPerformed
 
+    private void btnFirstAvailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstAvailActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        int count=0;
+        
+        String availCar = txtFirstAvail.getText();
+        
+        for( Car obj : carList.getCarList()){
+            if( obj.getAvailability().equalsIgnoreCase("yes") && obj.getCity().equalsIgnoreCase(availCar)){
+                Object[] row = new Object[8];
+                row[0] = obj;
+                row[1] = obj.getManufacturedYear();
+                row[2] = String.valueOf(obj.getSeats());
+                row[3] = obj.getCarNumber();
+                row[4] = obj.getModelNumber();
+                row[5] = obj.getCity();
+                row[6] = obj.getExpiryCertificate();
+                row[7] = obj.getAvailability();
+                
+                model.addRow(row);
+                count++;
+                return;
+            }
+        }
+        
+        if ( count == 0 )
+            JOptionPane.showMessageDialog(null, "Sorry no cars available in  "+availCar);
+        
+        txtFirstAvail.setText("");
+    }//GEN-LAST:event_btnFirstAvailActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCarAvailability;
     private javax.swing.JButton btnCity;
     private javax.swing.JButton btnExpiry;
+    private javax.swing.JButton btnFirstAvail;
     private javax.swing.JButton btnListAll;
     private javax.swing.JButton btnManufacturedYear;
     private javax.swing.JButton btnManufacturerName;
     private javax.swing.JButton btnModel;
     private javax.swing.JButton btnSeats;
     private javax.swing.JButton btnSerial;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblAvailCars;
+    private javax.swing.JLabel lblNotAvailCars;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtAnswer1;
+    private javax.swing.JTextField txtAvailNo;
+    private javax.swing.JTextField txtAvailYes;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtExpiry;
+    private javax.swing.JTextField txtFirstAvail;
     private javax.swing.JTextField txtManuName;
     private javax.swing.JTextField txtManuYear;
     private javax.swing.JTextField txtMaxSeat;
@@ -550,4 +539,24 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtSerial;
     // End of variables declaration//GEN-END:variables
+
+    private void Availablity() {
+        
+        
+        int countYes=0;
+        int countNo=0;
+        
+        
+        for( Car obj : carList.getCarList()){
+            if( obj.getAvailability().equals("yes")){
+                countYes++;
+            }
+            else if(obj.getAvailability().equals("no")){
+                countNo++;
+            }
+        }
+        txtAvailYes.setText(countYes+" cars available");
+        txtAvailNo.setText(countNo+" cars unavailable");
+    }
+    
 }
