@@ -9,7 +9,7 @@ package Business.Restaurant;
  *
  * @author harold
  */
-import Order.Order;
+import Business.Order.Order;
 import java.util.ArrayList;
 
 public class Restaurant {

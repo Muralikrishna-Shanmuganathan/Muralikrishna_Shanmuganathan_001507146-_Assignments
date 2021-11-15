@@ -6,7 +6,7 @@
 package Business.Customer;
 
 import Business.Restaurant.Menu;
-import Order.Order;
+import Business.Order.Order;
 import java.util.ArrayList;
 
 /**
