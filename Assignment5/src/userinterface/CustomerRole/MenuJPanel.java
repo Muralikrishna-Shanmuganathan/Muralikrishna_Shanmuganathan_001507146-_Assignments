@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author raunak
  */
-public class RequestLabTestJPanel extends javax.swing.JPanel {
+public class MenuJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     
@@ -25,7 +25,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form RequestLabTestJPanel
      */
-    public RequestLabTestJPanel(JPanel userProcessContainer, UserAccount account) {
+    public MenuJPanel(JPanel userProcessContainer, UserAccount account) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;

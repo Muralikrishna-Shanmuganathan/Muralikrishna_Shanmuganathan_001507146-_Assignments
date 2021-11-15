@@ -123,6 +123,32 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
         // Get user name
+        String username = userNameJTextField.getText();
+        char[] passwordCharArray = passwordField.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        
+        UserAccount ua = system.getUserAccountDirectory().authenticateUser(username, password);  
+         try {
+             if(ua==null){
+                 
+                 JOptionPane.showMessageDialog(null," Invalid UserName or Password, Please check your credentials! ");
+                 userNameJTextField.setText("");
+                 passwordField.setText("");
+                 throw new Exception();
+             }
+             
+        } catch (Exception e) {
+             return;
+        }
+         
+        CardLayout layout = (CardLayout) container.getLayout();
+        container.add(ua.getRole().createWorkArea(container, ua, system));
+        layout.next(container);
+        
+        logoutJButton.setEnabled(true);
+        userNameJTextField.setEnabled(false);
+        passwordField.setEnabled(false);
+        loginJButton.setEnabled(false);
        
     }//GEN-LAST:event_loginJButtonActionPerformed
 

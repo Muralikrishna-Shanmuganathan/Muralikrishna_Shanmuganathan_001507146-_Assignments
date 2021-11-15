@@ -32,8 +32,9 @@ public class UserAccountDirectory {
         return null;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
+    public UserAccount createUserAccount(String name, String username, String password, Employee employee, Role role){
         UserAccount userAccount = new UserAccount();
+        userAccount.setName(name);
         userAccount.setUsername(username);
         userAccount.setPassword(password);
         userAccount.setEmployee(employee);
@@ -48,5 +49,16 @@ public class UserAccountDirectory {
                 return false;
         }
         return true;
+    }
+    
+    public void deleteUserAccount(UserAccount user){
+        userAccountList.remove(user);
+    }
+    
+    public void updateUserAccount(UserAccount user,String name,String username, String password){
+       
+        user.setName(name);
+        user.setUsername(username);
+        user.setPassword(password);
     }
 }
