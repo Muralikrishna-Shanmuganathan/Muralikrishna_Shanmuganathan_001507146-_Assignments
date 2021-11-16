@@ -59,5 +59,13 @@ public class RestaurantDirectory {
         restro.removeDishes(menu);
         
     }
-    
+    public void updateMenu(Restaurant restro,String name, String desc, String amount){
+        menu=new Menu(name, desc, amount);
+        restro.setName(name);
+        restro.setAddress(desc);
+        restro.setNumber(amount);
+    }
+    public Menu getMenu(Restaurant restro,String name, String desc, String amount){
+       return menu;
+    }   
 }

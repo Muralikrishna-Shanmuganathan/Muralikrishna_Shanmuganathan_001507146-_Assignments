@@ -4,8 +4,12 @@
  */
 package userinterface.DeliveryManRole;
 
+import Business.Customer.Customer;
+import Business.EcoSystem;
+import Business.Order.Order;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,11 +21,16 @@ import javax.swing.JPanel;
 public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
+    Order order;
+    EcoSystem system;
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public ProcessWorkRequestJPanel(JPanel userProcessContainer) {
+    public ProcessWorkRequestJPanel(JPanel userProcessContainer, Order order, EcoSystem system) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.order = order;
+        this.system = system;
         
     }
 
@@ -36,7 +45,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
         submitJButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        resultJTextField = new javax.swing.JTextField();
+        txtResult = new javax.swing.JTextField();
         backJButton = new javax.swing.JButton();
 
         submitJButton.setText("Submit Result");
@@ -67,7 +76,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
@@ -80,7 +89,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(resultJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtResult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(submitJButton)
@@ -103,12 +112,35 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
     private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
        
+        String status=txtResult.getText();
+        
+        try {
+             if(status==null || status.isEmpty()){
+                throw new Exception(" Please enter delivery status");
+             }        
+        } catch(Exception e){
+            JOptionPane.showMessageDialog(null, " Please enter delivery status");
+            return;
+        }
+        
+        order.setStatus(status);
+         for(Customer cust:system.getCustomerDirectory().getCustList()){
+            if(order.getCustomerName().equals(cust.getUserName())){
+                for(Order order : cust.getOrderList()){
+                    order.setStatus(status);
+                }
+            }
+        }
+        txtResult.setText("");
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backJButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField resultJTextField;
     private javax.swing.JButton submitJButton;
+    private javax.swing.JTextField txtResult;
     // End of variables declaration//GEN-END:variables
 }

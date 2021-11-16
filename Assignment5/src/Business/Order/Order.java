@@ -28,7 +28,6 @@ public class Order {
     private ArrayList<Menu> Order;
     private String cost;
     private String status;
-    private String deliveryAddress;
 
     public String getStatus() {
         return status;
@@ -37,6 +36,10 @@ public class Order {
     public void setStatus(String status) {
         this.status = status;
     }
+
+   
+    private String deliveryAddress;
+    
     
 
     public String getRestaurentName() {

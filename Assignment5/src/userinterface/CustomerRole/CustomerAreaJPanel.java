@@ -10,6 +10,7 @@ import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,15 +36,14 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     }
     
     public void populateRequestTable(){
-        DefaultTableModel model = (DefaultTableModel) tblCustomerOrders.getModel();
+        DefaultTableModel model = (DefaultTableModel) restaurentTable.getModel();
         
         model.setRowCount(0);
          
         Object[] row = new Object[3];
         for(Restaurant restro:system.getRestaurantDirectory().getRestaurantList()){
              row[0] = restro;
-             row[1] = restro.getAddress();
-             row[2] = restro.getNumber();
+             row[1] = restro.getAddress();;
              model.addRow(row);
         }
     }
@@ -59,13 +59,13 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCustomerOrders = new javax.swing.JTable();
+        restaurentTable = new javax.swing.JTable();
         btnPlaceOrder = new javax.swing.JButton();
         refreshTestJButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
-        tblCustomerOrders.setModel(new javax.swing.table.DefaultTableModel(
+        restaurentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -91,10 +91,10 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblCustomerOrders);
-        if (tblCustomerOrders.getColumnModel().getColumnCount() > 0) {
-            tblCustomerOrders.getColumnModel().getColumn(0).setResizable(false);
-            tblCustomerOrders.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(restaurentTable);
+        if (restaurentTable.getColumnModel().getColumnCount() > 0) {
+            restaurentTable.getColumnModel().getColumn(0).setResizable(false);
+            restaurentTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
         btnPlaceOrder.setText("Place Order");
@@ -154,7 +154,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         
-        
+        int selectedRowIndex = restaurentTable.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(null,"Please select a row from the table to view details","Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+           Restaurant restaurant = (Restaurant)restaurentTable.getValueAt(selectedRowIndex, 0);
+            
+            
+            MenuJPanel manageMenu=new MenuJPanel(userProcessContainer,userAccount,system,restaurant);
+            userProcessContainer.add("Manage Restaurants",manageMenu);
+            CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
         
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
@@ -169,7 +181,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton refreshTestJButton;
-    private javax.swing.JTable tblCustomerOrders;
+    private javax.swing.JTable restaurentTable;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }
