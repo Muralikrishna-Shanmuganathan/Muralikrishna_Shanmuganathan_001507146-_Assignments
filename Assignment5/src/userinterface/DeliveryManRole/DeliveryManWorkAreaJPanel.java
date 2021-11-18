@@ -38,6 +38,8 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
       
         
         populateTable();
+        
+        valueLabel.setText(account.getName());
     }
     
     public void populateTable(){
@@ -81,7 +83,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         btnProcess = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        enterpriseLabel = new javax.swing.JLabel();
+        valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         workRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -112,7 +117,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(workRequestJTable);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 610, 96));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 610, 96));
 
         btnProcess.setText("PROCESS ORDER");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +125,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 btnProcessActionPerformed(evt);
             }
         });
-        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+        add(btnProcess, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -128,10 +133,18 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, -1, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("DELLIVERY PORTAL");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+
+        enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        enterpriseLabel.setText("Delivery Man:");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 140, 30));
+
+        valueLabel.setText("<value>");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 158, 26));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
@@ -164,8 +177,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProcess;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel valueLabel;
     private javax.swing.JTable workRequestJTable;
     // End of variables declaration//GEN-END:variables
 }

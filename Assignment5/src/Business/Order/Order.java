@@ -28,7 +28,24 @@ public class Order {
     private ArrayList<Menu> Order;
     private String cost;
     private String status;
+    private String feedback;
+    private String feedbackFromCust;
 
+    public String getFeedbackFromCust() {
+        return feedbackFromCust;
+    }
+
+    public void setFeedbackFromCust(String feedbackFromCust) {
+        this.feedbackFromCust = feedbackFromCust;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
     public String getStatus() {
         return status;
     }

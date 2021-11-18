@@ -5,6 +5,7 @@
 package Business.Role;
 
 import Business.EcoSystem;
+import Business.Order.Order;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;

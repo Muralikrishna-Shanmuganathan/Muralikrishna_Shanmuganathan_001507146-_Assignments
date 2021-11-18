@@ -26,12 +26,14 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
     EcoSystem system;
     JPanel userProcessContainer;
     UserAccount account;
+    Order order;
     public ManageOrdersJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system) {
         initComponents();
         this.account=account;
         this.system=system;
         this.userProcessContainer=userProcessContainer;
         populateTable();
+        
     }
 
     /**
@@ -49,11 +51,14 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         tblDelivery = new javax.swing.JTable();
         btnDelivery = new javax.swing.JButton();
         btnTakeOut = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("MANAGE ORDERS");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 56, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -65,17 +70,17 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
 
         tblDelivery.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ORDER ID", "CUSTOMER NAME", "ADDRESS", "AMOUNT", "STATUS"
+                "ORDER ID", "CUSTOMER NAME", "ADDRESS", "AMOUNT", "STATUS", "COMMENTS"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -84,7 +89,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDelivery);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 114, -1, 206));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 630, 206));
 
         btnDelivery.setText("ASSING A DELIVERY PERSON");
         btnDelivery.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +97,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 btnDeliveryActionPerformed(evt);
             }
         });
-        add(btnDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 356, -1, -1));
+        add(btnDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, -1, -1));
 
         btnTakeOut.setText("TAKE OUT FOOD");
         btnTakeOut.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +105,15 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
                 btnTakeOutActionPerformed(evt);
             }
         });
-        add(btnTakeOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 356, 219, -1));
+        add(btnTakeOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 400, 219, -1));
+
+        btnRefresh.setText("REFRESH");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 120, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -150,10 +163,16 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
         populateTable();
     }//GEN-LAST:event_btnTakeOutActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelivery;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnTakeOut;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -161,7 +180,7 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        
+        Order order = new Order();
         DefaultTableModel model = (DefaultTableModel) tblDelivery.getModel();
         
         model.setRowCount(0);
@@ -170,12 +189,13 @@ public class ManageOrdersJPanel extends javax.swing.JPanel {
            
             if (restro.getAdminUName().equals(account.getUsername())) {
                for(Order menu:restro.getOrderList()){
-                Object[] row = new Object[5];
+                Object[] row = new Object[6];
                 row[0] = menu;
                 row[1] = menu.getCustomerName();
                 row[2] = menu.getDeliveryAddress();
                 row[3] = menu.getCost();
                 row[4] = menu.getStatus();
+                row[5] = menu.getFeedback();
                 model.addRow(row);
                }   
             }  

@@ -51,6 +51,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
         statusBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         orderTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,6 +100,7 @@ public class OrderDetailsJPanel extends javax.swing.JPanel {
         });
         add(statusBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("ORDER DETAILS PORTAL");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

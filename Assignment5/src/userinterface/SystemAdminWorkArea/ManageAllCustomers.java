@@ -60,10 +60,13 @@ public class ManageAllCustomers extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(204, 204, 204));
         lblTitle.setText("MANAGE CUSTOMERS PORTAL");
-        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 49, -1, -1));
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 270, 30));
 
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

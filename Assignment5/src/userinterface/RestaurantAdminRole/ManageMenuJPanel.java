@@ -59,8 +59,10 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         txtPrice = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("MANAGE MENU PORTAL");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 44, -1, 29));
 

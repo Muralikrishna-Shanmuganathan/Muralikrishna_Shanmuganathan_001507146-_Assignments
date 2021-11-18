@@ -59,8 +59,11 @@ public class ManageDeliveryMan extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDeliveryMan = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(0, 153, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(204, 204, 204));
         lblTitle.setText("MANAGE DELIVERYMAN PORTAL");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 66, -1, -1));
 

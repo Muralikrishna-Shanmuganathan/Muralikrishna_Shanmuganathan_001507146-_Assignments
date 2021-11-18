@@ -6,6 +6,7 @@ package userinterface.CustomerRole;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.Organization;
 import Business.Restaurant.Menu;
 import Business.Restaurant.Restaurant;
@@ -92,11 +93,15 @@ public class MenuJPanel extends javax.swing.JPanel {
         txtAddress = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnOrder = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtComment = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel2.setText("ORDER FOOD");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 90, 20));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 150, 20));
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,10 +116,10 @@ public class MenuJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblMenu);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, 150));
 
         jLabel3.setText("CHOOSE DISH FROM HERE");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
 
         btnAdd.setText("ADD TO CART");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +127,7 @@ public class MenuJPanel extends javax.swing.JPanel {
                 btnAddActionPerformed(evt);
             }
         });
-        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 170, -1));
+        add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 170, -1));
 
         btnRemove.setText("REMOVE FROM CART");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +135,7 @@ public class MenuJPanel extends javax.swing.JPanel {
                 btnRemoveActionPerformed(evt);
             }
         });
-        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, -1, -1));
+        add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
 
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,14 +150,14 @@ public class MenuJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblOrders);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, 197));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, -1, 140));
 
         jLabel4.setText("YOUR ORDER");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
 
         jLabel1.setText("ADD YOUR ADDRESS:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 710, -1, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 700, 270, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 620, -1, 40));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 630, 270, -1));
 
         btnBack.setText("BACK");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +173,17 @@ public class MenuJPanel extends javax.swing.JPanel {
                 btnOrderActionPerformed(evt);
             }
         });
-        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 760, -1, -1));
+        add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 650, -1, 40));
+
+        jLabel5.setText("ANY COMMENTS ?");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 690, -1, -1));
+
+        txtComment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCommentActionPerformed(evt);
+            }
+        });
+        add(txtComment, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 680, 190, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -224,7 +239,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         String address=txtAddress.getText();
-        
+        String feedback = txtComment.getText();        
         try {
              if(address==null || address.isEmpty()){
                 throw new NullPointerException("Please enter your address");
@@ -246,7 +261,7 @@ public class MenuJPanel extends javax.swing.JPanel {
         }
         
         
-        restro.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
+        restro.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address, feedback);
         for(Customer cust:system.getCustomerDirectory().getCustList()){
             if(userAccount.getUsername().equals(cust.getUserName())){
                 cust.addOrder(restro.getName(), userAccount.getUsername(), null, items, String.valueOf(sum) , address);
@@ -265,6 +280,10 @@ public class MenuJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnOrderActionPerformed
 
+    private void txtCommentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCommentActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
@@ -274,10 +293,12 @@ public class MenuJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblMenu;
     private javax.swing.JTable tblOrders;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtComment;
     // End of variables declaration//GEN-END:variables
 }

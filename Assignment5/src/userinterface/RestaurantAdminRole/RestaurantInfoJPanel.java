@@ -51,6 +51,7 @@ public class RestaurantInfoJPanel extends javax.swing.JPanel {
         SaveBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Restaurant Name:");
@@ -91,8 +92,9 @@ public class RestaurantInfoJPanel extends javax.swing.JPanel {
                 SaveBtnActionPerformed(evt);
             }
         });
-        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
+        add(SaveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("RESTAURANT INFORMATION PORTAL");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

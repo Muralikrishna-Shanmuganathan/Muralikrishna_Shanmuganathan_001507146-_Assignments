@@ -54,8 +54,11 @@ public class AssignDeliveryManJPanel extends javax.swing.JPanel {
         tblDeliveryPerson = new javax.swing.JTable();
         btnAssign = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("ASSIGN DELIVEVRY MAN PORTAL");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 69, -1, -1));
 
@@ -80,7 +83,7 @@ public class AssignDeliveryManJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblDeliveryPerson);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 150, 168, 161));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 150, 210, 161));
 
         btnAssign.setText("SELECT DELIVERY PERSON");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +91,7 @@ public class AssignDeliveryManJPanel extends javax.swing.JPanel {
                 btnAssignActionPerformed(evt);
             }
         });
-        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(248, 369, -1, -1));
+        add(btnAssign, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

@@ -4,6 +4,7 @@ package userinterface.RestaurantAdminRole;
 
 
 import Business.EcoSystem;
+import Business.Order.Order;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -24,6 +25,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.account=account;
         this.userProcessContainer = userProcessContainer;
         this.system=system;
+        
+        valueLabel.setText(account.getName());
     }
     
     /** This method is called from within the constructor to
@@ -41,6 +44,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -53,7 +57,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageResInfoActionPerformed(evt);
             }
         });
-        add(btnManageResInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, -1));
+        add(btnManageResInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 269, 210, 40));
 
         btnManageMenu.setText("Manage menu");
         btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +65,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageMenuActionPerformed(evt);
             }
         });
-        add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 150, -1));
+        add(btnManageMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, 40));
 
         btnManageOrders.setText("Manage Orders");
         btnManageOrders.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +73,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnManageOrdersActionPerformed(evt);
             }
         });
-        add(btnManageOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        add(btnManageOrders, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 210, 40));
 
         enterpriseLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         enterpriseLabel.setText("Restaurant :");
